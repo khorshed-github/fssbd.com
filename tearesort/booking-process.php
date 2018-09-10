@@ -57,6 +57,7 @@ $bangloType = $_SESSION['bangloType'];
 	$email = mysqli_real_escape_string($con,$_POST['email']);
 	$message = mysqli_real_escape_string($con,$_POST['message']);
 
+	if(isset($_POST['registerButton'])){
 	$qexit = mysqli_query($con,"SELECT email FROM clients WHERE email='$email'");
 	if(mysqli_num_rows($qexit) == 0){
 	$sqlinsert = mysqli_query($con,"INSERT INTO `clients`(`first_name`, `surname`, `title`, `street_addr`, `city`, `province`, `zip`, `country`, `phone`, `nid`, `email`, `additional_comments`, `ip`, `existing_client`, `datetime`)VALUES('$first_name','$surname','$title','$street_addr','$city','$province','$zip','$country','$phone','$nid','$email','$message','$ip',0,CURRENT_TIMESTAMP)");
@@ -64,9 +65,9 @@ $bangloType = $_SESSION['bangloType'];
 		$sqlinsert = mysqli_query($con,"UPDATE `clients` SET existing_client=1 WHERE email='$email'");
 	}
 
-	$sqlBook = mysqli_query($con,"INSERT INTO `bookings`(`booking_time`, `start_date`, `end_date`, `client_id`, `adult_count`, `child_count`, `extra_guest_count`, `discount_coupon`, `total_cost`, `payment_amount`, `payment_type`, `payment_success`, `payment_txnid`, `paypal_email`, `special_id`, `special_requests`, `is_block`, `is_deleted`, `block_name`, `ip`, `datetime`)VALUES('$bkTime','$entryDate','$outDate','$client_id','$adultCount','$childCount',0,'','$totalAmount','$bookingAmount','','','','','','','','','','$ip',CURRENT_TIMESTAMP)"); 
-
-	if($sqlinsert AND $sqlBook){
+	/* $sqlBook = mysqli_query($con,"INSERT INTO `bookings`(`booking_time`, `start_date`, `end_date`, `client_id`, `adult_count`, `child_count`, `extra_guest_count`, `discount_coupon`, `total_cost`, `payment_amount`, `payment_type`, `payment_success`, `payment_txnid`, `paypal_email`, `special_id`, `special_requests`, `is_block`, `is_deleted`, `block_name`, `ip`, `datetime`)VALUES('$bkTime','$entryDate','$outDate','$client_id','$adultCount','$childCount',0,'','$totalAmount','$bookingAmount','','','','','','','','','','$ip',CURRENT_TIMESTAMP)");  */
+	}
+	
 
 $currencyCode = "BDT";
 $MerchantID = "TRESORT";
@@ -91,7 +92,9 @@ echo "document.write('<input type=\"hidden\" name=\"mer_var4\"  value=\"" "\">')
 	echo "setTimeout(\"document.formigp.submit()\",500);";
 	echo "</script>";
 	
+		/* if($sqlinsert AND $sqlBook){
+
 	}else{
 		echo $msg = "transaction Error!!";
-	} 
+	}  */
 ?>

@@ -232,6 +232,9 @@ $_SESSION['bangloType']=$roomType;
 							</div><!-- /.box-body -->
 						</section><!-- /.account-info -->
 						
+						<!--  
+						//Insert Data into Database using Jquery//
+						
 						<script type="text/javascript">
 							$(document).ready(function(){
 								$("#registerButton").click(function(e){
@@ -254,19 +257,10 @@ $_SESSION['bangloType']=$roomType;
 										url:"booking-process.php",
 										data:{cid:cid,title:title,fname:fname,lname:lname,phone:phone,email:email,country:country,nid:nid,str_addr:str_addr,city:city,state:state,zipcode:zipcode,message:message},
 										
-										
-										success: function(data, textStatus, jqXHR)
-										{
-										   alert(this.data + "," + this.url);
-										   window.location.href = url;	
-										   DataClear();
-										   									
-										}
-										
-										/* success:function(data){
+										 success:function(data){
 											alert(data);
 											DataClear();
-										} */
+										} 
 										
 									});
 								});								
@@ -281,7 +275,8 @@ $_SESSION['bangloType']=$roomType;
 							});
 							}
 						</script>
-						<form method="post" id="form1" class="signupform">
+						-->
+						<form method="post" action="booking-process.php" id="form1" class="signupform">
 						<section class="row row-billing clearfix">
 							<header class="box-heading">
 								<h3 class="head headborder">Billing information</h3>
@@ -309,7 +304,7 @@ $_SESSION['bangloType']=$roomType;
 									<input type="checkbox" name="tos" id="tos" value="" style="width:15px !important"  class="required" required />&nbsp;      
      I agree with the <a href="javascript: ;" onclick="javascript:myPopup2();"> Terms & Conditions.</a>
 									
-									<p><button id="registerButton" type="submit" style="float:left;" class="btn btn-large btn-darkbrown">Book now & Pay Deposit</button></p>
+									<p><button id="registerButton" name="registerButton" type="submit" style="float:left;" class="btn btn-large btn-darkbrown">Book now & Pay Deposit</button></p>
 									
 								</div>
 							</div>

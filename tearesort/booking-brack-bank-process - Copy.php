@@ -17,7 +17,6 @@ $SOCKET_TIMEOUT = 2;
 $IPGSocket = "";
 
 $error_message = "";
-$socket_creation_err = "";
 $invoice_sent_error = "";
 $encryption_ERR = "";
 
