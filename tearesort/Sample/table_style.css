@@ -1,0 +1,69 @@
+body
+  { font-family: Arial, sans-serif;
+  }
+
+button, tr, td
+  { behavior: url('IEFixes.htc');
+  }
+
+h1
+  { font-size: 1.2em;
+    text-align: center;
+  }
+
+h2
+  { font-size: 1.1em;
+  }
+
+button
+  { background: #aaf;
+    border-color: #55c;
+  }
+
+button:hover, button.hover
+  { background: #eef;
+  }
+
+button:active, button.active 
+  { color: #eef;
+    background: #226;
+  }
+
+pre
+  { margin: 1em;
+    border: solid 1px #000;
+    padding: 0.5em;
+    font-size: 0.85em;
+  }
+
+table
+  { background: #aaf;
+    border: double #000 3px;
+    border-collapse: collapse;
+  }
+
+caption
+  { padding: 0.25em 2ex;
+  }
+
+thead
+  { background: #55c;
+    color:	#fff;
+  }
+
+th
+  { padding: 0.25em 2ex;
+  }
+
+tbody tr:hover,tbody tr.hover
+  { background: #ccf;
+  }
+
+td
+  { text-align: center;
+  }
+
+td:hover, td.hover
+  { background:#ccc;
+  }
+
