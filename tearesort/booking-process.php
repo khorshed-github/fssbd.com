@@ -65,34 +65,64 @@ $bangloType = $_SESSION['bangloType'];
 		$sqlinsert = mysqli_query($con,"UPDATE `clients` SET existing_client=1 WHERE email='$email'");
 	}
 
-	/* $sqlBook = mysqli_query($con,"INSERT INTO `bookings`(`booking_time`, `start_date`, `end_date`, `client_id`, `adult_count`, `child_count`, `extra_guest_count`, `discount_coupon`, `total_cost`, `payment_amount`, `payment_type`, `payment_success`, `payment_txnid`, `paypal_email`, `special_id`, `special_requests`, `is_block`, `is_deleted`, `block_name`, `ip`, `datetime`)VALUES('$bkTime','$entryDate','$outDate','$client_id','$adultCount','$childCount',0,'','$totalAmount','$bookingAmount','','','','','','','','','','$ip',CURRENT_TIMESTAMP)");  */
+	/* $sqlBook = mysqli_query($con,"INSERT INTO `bookings`(`booking_time`, `start_date`, `end_date`, `client_id`, `adult_count`, `child_count`, `extra_guest_count`, `discount_coupon`, `total_cost`, `payment_amount`, `payment_type`, `payment_success`, `payment_txnid`, `paypal_email`, `special_id`, `special_requests`, `is_block`, `is_deleted`, `block_name`, `ip`, `datetime`)VALUES('$bkTime','$entryDate','$outDate','$client_id','$adultCount','$childCount',0,'','$totalAmount','$bookingAmount','','','','','','','','','','$ip',CURRENT_TIMESTAMP)"); */
 	}
 	
+	
+//mail Function 
+/* $to = $email;
+$subject = "Tea Resort & Museum Bookings details";
+
+$headers = "From: Tea Resort, BTB. <tearesort@yahoo.com> \r\n";
+$headers .= "Reply-To: no-reply@tearesort.gov.bd \r\n";
+$headers .= "BCC: tearesort@yahoo.com\r\n";
+$headers .= "MIME-Version: 1.0\r\n";
+$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+$message = '<html><body>';
+$message .= '<h1>Bookings details:</h1>';
+$message .= '</body></html>';
+$message = '<html><body>';
+$message .= '<img src="http://tearesort.gov.bd/logo/Sreemangal-Tea-Resort-Logo.jpg" alt="'.$subject.'" />';
+$message .= '<table rules="all" style="border-color: #666;" cellpadding="15">';
+$message .= "<tr style='background: #eee;'><td><strong>Name :</strong> </td><td>" . strip_tags($title.' '. $first_name. ' '.$surname) . "</td></tr>";
+$message .= "<tr><td><strong>Address :</strong> </td><td>" . strip_tags($street_addr) . "</td></tr>";
+$message .= "<tr><td><strong>Check In Date:</strong> </td><td>" . strip_tags($entryDate) . "</td></tr>";
+$message .= "<tr><td><strong>Check Out Date:</strong> </td><td>" . strip_tags($outDate) . "</td></tr>";
+$message .= "<tr><td><strong>Amount:</strong> </td><td>" . strip_tags($bookingAmount) ."</td></tr>";
+$message .= "</table>";
+$message .= "</body></html>";
+
+mail($to, $subject, $message, $headers);  */
+
 
 $currencyCode = "BDT";
 $MerchantID = "TRESORT";
 $MerchantRefID = time();
 $TxnAmount = $bookingAmount;
+$IPGServerURL = "http://ipaytest.bracbank.com:8080";
+$ReturnURL = "http://www.tearesort.gov.bd/Sample";
+$action = "SaleTxn";
 	
-	echo "<script language=\"JavaScript\">";
-	echo "document.write('<form action=\"booking-brack-bank-process.php\" method=\"post\" name=\"formigp\">');";
-	echo "document.write('<input type=\"hidden\" name=\"cur\"  value=\"".$currencyCode."\">');";
-	echo "document.write('<input type=\"hidden\" name=\"mer_id\"  value=\"".$MerchantID."\">');";
-	echo "document.write('<input type=\"hidden\" name=\"mer_txn_id\"  value=\"".$MerchantRefID."\">');";
-	echo "document.write('<input type=\"hidden\" name=\"txn_amt\"  value=\"".$TxnAmount."\">');";
+echo "<script language=\"JavaScript\">";
+echo "document.write('<form action=\"booking-brack-bank-process.php\" method=\"post\" name=\"formigp\">');";
+echo "document.write('<input type=\"hidden\" name=\"cur\"  value=\"".$currencyCode."\">');";
+echo "document.write('<input type=\"hidden\" name=\"mer_id\"  value=\"".$MerchantID."\">');";
+echo "document.write('<input type=\"hidden\" name=\"mer_txn_id\"  value=\"".$MerchantRefID."\">');";
+echo "document.write('<input type=\"hidden\" name=\"txn_amt\"  value=\"".$TxnAmount."\">');";
+echo "document.write('<input type=\"hidden\" name=\"ipg_server_url\"  value=\"".$IPGServerURL."\">');";
+echo "document.write('<input type=\"hidden\" name=\"ret_url\"  value=\"".$ReturnURL."\">');";
 
-/* 
-echo "document.write('<input type=\"hidden\" name=\"mer_var1\"  value=\"" "\">');";
-echo "document.write('<input type=\"hidden\" name=\"mer_var2\"  value=\"" "\">');";
-echo "document.write('<input type=\"hidden\" name=\"mer_var3\"  value=\"" "\">');";
-echo "document.write('<input type=\"hidden\" name=\"mer_var4\"  value=\"" "\">');";
- */
+echo "document.write('<input type=\"hidden\" name=\"mer_var1\"  value=\"".$first_name."\">');";
+echo "document.write('<input type=\"hidden\" name=\"mer_var2\"  value=\"".$surname."\">');";
+echo "document.write('<input type=\"hidden\" name=\"mer_var3\"  value=\"".$street_addr."\">');";
+echo "document.write('<input type=\"hidden\" name=\"mer_var4\"  value=\"".$phone."\">');";
+echo "document.write('<input type=\"hidden\" name=\"action\"  value=\"".$action."\">');";
 
 	echo "document.write('</form>');";
 	echo "setTimeout(\"document.formigp.submit()\",500);";
 	echo "</script>";
 	
-		/* if($sqlinsert AND $sqlBook){
+	/* if($sqlinsert AND $sqlBook){
 
 	}else{
 		echo $msg = "transaction Error!!";

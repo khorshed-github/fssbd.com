@@ -4,8 +4,9 @@ error_reporting(0);
 include("config/dbconnect.php");
 if(isset($_POST['booking'])){
 	
-	$indate = trim(date('Y-d-m',strtotime($_POST['check_in'])));		
-	$outdate = trim(date('Y-d-m',strtotime($_POST['check_out'])));
+	$indate = trim(date('Y-m-d',strtotime($_POST['check_in'])));		
+	$outdate = trim(date('Y-m-d',strtotime($_POST['check_out'])));
+
 	
 	$qd = mysqli_query($con,"SELECT DATEDIFF('$outdate','$indate') as difdate");
 	$objd = mysqli_fetch_object($qd);
@@ -131,8 +132,8 @@ $_SESSION['bangloType']=$roomType;
 									<td bgcolor="#DBEDFC" align="right" style="padding-right:5px;"><strong>Amounts</strong></td>
 								   </tr>
 								   <tr>
-									<td align="center" bgcolor="#f5f9f9"><?php echo $indate;?></td>
-									<td align="center" bgcolor="#f5f9f9"><?php echo $outdate;?></td>
+									<td align="center" bgcolor="#f5f9f9"><?php echo date("d-m-Y",strtotime($indate));?></td>
+									<td align="center" bgcolor="#f5f9f9"><?php echo date("d-m-Y",strtotime($outdate));?></td>
 									<td align="center" bgcolor="#f5f9f9"><?php echo $night;?></td>
 									<td align="center" bgcolor="#f5f9f9"></td>
 								   </tr>
@@ -226,7 +227,7 @@ $_SESSION['bangloType']=$roomType;
 							<div class="box-body">
 								<div class="form-group">
 									<label class="label-control">Email<span class="start">*</span></label>
-                                    <input type="text" name="email_addr_existing" id="email_addr_existing" class="input-control" />
+                                    <input type="text" name="email_addr_existing" id="email_addr_existing" class="input-control" required />
 								</div>
                                <!-- <button id="btn_exisitng_cust" class="btn btn-medium btn-brown" type="submit" style="float:left;">FETCH DETAILS</button>-->
 							</div><!-- /.box-body -->
@@ -293,7 +294,7 @@ $_SESSION['bangloType']=$roomType;
 							<div class="row">
 								<div class="form-group"> 
 									<label for="paymentMethod" class="label-control">Payment<span class="start">*</span></label>
-									<input type="radio" name="paymentType"  class="required" required/>Credit / Debit Cards / DBBL Nexsus/ Islami Bank/ bKash EasyPayWay
+									<input type="radio" name="paymentType"  class="required" required />Credit / Debit Cards / DBBL Nexsus/ Brac Bank/
 								</div>
 				                <div class="form-group">
 									<label class="label-control">Any additional requests<span class="start">*</span></label>

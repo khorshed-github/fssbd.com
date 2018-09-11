@@ -3,16 +3,17 @@
 		<div class="form-group">
 			<label class="label-control"><strong>Arrival Date</strong></label>
 			<div class="booking-form select-black">
-				<label class="collapse input">
-					<input type="text" name="check_in" id="arrival-date" class="input-control border-black" required />
+								
+				<label class="collapse input">				
+					<input type="date" name="check_in" class="input-control border-black" required />			
 				</label>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="label-control"><strong>Departure Date</strong></label>
-			<div class="booking-form select-black">
+			<div class="booking-form select-black">			
 				<label class="collapse input">
-					<input type="text" name="check_out" id="departure-date" class="input-control border-black" required />
+					<input type="date" name="check_out" class="input-control border-black" required />
 				</label>
 			</div>
 		</div>

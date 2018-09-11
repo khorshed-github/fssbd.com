@@ -32,9 +32,7 @@ $IPGServerURL = $_POST["ipg_server_url"]."/ipg/servlet_pay";
 /**
 * Create invoice for sale transaction
 */
-$currencyCode = $_POST["SaleTxn"];
-
-if($_POST["action"] == "SaleTxn") {
+//if($_POST["action"] == "SaleTxn") {
     $currencyCode = $_POST["cur"];
     $MerchantID = $_POST["mer_id"];
     $MerchantRefID = $_POST["mer_txn_id"];
@@ -42,15 +40,15 @@ if($_POST["action"] == "SaleTxn") {
     $ReturnURL = $_POST["ret_url"];
 
     $MerchantVar1 = $_POST["mer_var1"];
-    $MerchantVar2 = $_POST["mer_var2"];
-    $MerchantVar3 = $_POST["mer_var3"];
-    $MerchantVar4 = $_POST["mer_var4"];
+    $MerchantVar1 = $_POST["mer_var2"];
+    $MerchantVar1 = $_POST["mer_var3"];
+    $MerchantVar1 = $_POST["mer_var4"];
 
     $Invoice = "";
     $Invoice .= "<req>".
                     "<mer_id>" . $MerchantID . "</mer_id>".
                     "<mer_txn_id>" .$MerchantRefID. "</mer_txn_id>".
-                    "<action>" . $_POST["action"] . "</action>".
+                    //"<action>" . $_POST["action"] . "</action>".
 		    "<txn_amt>" . $TxnAmount . "</txn_amt>".
 		    "<cur>" . $currencyCode . "</cur>" .
 		    "<lang>en</lang>";
@@ -74,9 +72,53 @@ if($_POST["action"] == "SaleTxn") {
     if($MerchantVar4 != "") {
         $Invoice .= "<mer_var4>" .$MerchantVar4. "</mer_var4>";
     }
+
+    $Invoice .= "</req>";
+//}
+
+/**
+* Create invoice for sale merchant updated
+*/
+if($_POST["action"] == "SaleMerchUpdated") {
+    $MerchantID = $_POST["mer_id"];
+    $MerchantRefID = $_POST["mer_txn_id"];;
+    $IPGTransactionID = $_POST["ipg_txn_id"];
+    $ReturnURL = $_POST["ret_url"];
+
+    $Invoice = "";
+    $Invoice .= "<req>".
+                    "<mer_id>" . $MerchantID . "</mer_id>".
+                    "<mer_txn_id>" .$MerchantRefID. "</mer_txn_id>".
+                    "<action>" . $_POST["action"] . "</action>".
+		    "<ipg_txn_id>" .$IPGTransactionID. "</ipg_txn_id>";
+
+    if($ReturnURL != "") {
+       $Invoice .= "<ret_url>" . $ReturnURL . "/decrypt.php</ret_url>"; 
+    }
+
     $Invoice .= "</req>";
 }
 
+/**
+* Create invoice for sale transaction verify
+*/
+if($_POST["action"] == "SaleTxnVerify") {
+    $MerchantID = $_POST["mer_id"];
+    $MerchantRefID = $_POST["mer_txn_id"];
+    $ReturnURL = $_POST["ret_url"];
+
+    $Invoice = "";
+    $Invoice .= "<req>".
+                    "<mer_id>" . $MerchantID . "</mer_id>".
+                    "<mer_txn_id>" .$MerchantRefID. "</mer_txn_id>".
+                    "<action>" . $_POST["action"] . "</action>";
+
+    if($ReturnURL != "") {
+       $Invoice .= "<ret_url>" . $ReturnURL . "/decrypt.php</ret_url>"; 
+    }
+
+    $Invoice .= "</req>";
+}
 
 /**
 * Step 1 : Create the socket connection with IPG client
@@ -102,6 +144,7 @@ if($_POST["action"] == "SaleTxn") {
             $invoice_sent_error = true;
         }
     }
+    
 
 /**
 * Step 3 : Recieve the encrypted Invoice from IPG client
@@ -177,4 +220,5 @@ if($_POST["action"] == "SaleTxn") {
         </html>
         <?php
     }
+
 ?>
