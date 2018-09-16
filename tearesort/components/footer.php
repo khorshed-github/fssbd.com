@@ -58,8 +58,9 @@
 						</div>
 						<div class="row">
 							<div class="col-12 copyright-content">
-								<p class="copyright big">&copy; 2018. Tea Resort &amp; Museum. All rights reserved. Developed by <a href="http://www.eslctg.com/" target="_blank">E-Vision Software Ltd.</a></p>
-								<p class="copyright small">&copy; 2018. Tea Resort &amp; Museum. All rights reserved. <br>Developed by <a href="http://www.eslctg.com/" target="_blank">E-Vision Software Ltd.</a></p> 
+								<p class="copyright big">&copy; 2018. Tea Resort &amp; Museum. All rights reserved. Developed by <a href="http://www.eslctg.com/" target="_blank"><img src="logo/esl_logo.png"/></a></p>
+								<p class="copyright small">&copy; 2018. Tea Resort &amp; Museum. All rights reserved. <br>Developed by <a href="http://www.eslctg.com/" target="_blank">
+								<img src="logo/esl_logo.png"/></a></p> 
 							</div>
 						</div>
 					</div>

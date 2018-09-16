@@ -1,0 +1,168 @@
+/* Connect MSSQL Server*/
+$db['mssql']['hostname'] = 'Driver={SQL Server};Server=192.168.202.20;Database=test_db;
+$db['mssql']['username'] = 'sa';
+$db['mssql']['password'] = '654321';
+$db['mssql']['database'] = 'test_db';
+$db['mssql']['dbdriver'] = 'odbc';
+$db['mssql']['dbprefix'] = '';
+$db['mssql']['pconnect'] = FALSE;
+$db['mssql']['db_debug'] = TRUE;
+$db['mssql']['cache_on'] = FALSE;
+$db['mssql']['cachedir'] = '';
+$db['mssql']['char_set'] = 'utf8';
+$db['mssql']['dbcollat'] = 'utf8_general_ci';
+$db['mssql']['swap_pre'] = '';
+$db['mssql']['autoinit'] = TRUE;
+
+$db['mssql']['stricton'] = FALSE;
+
+
+
+===============================
+===============================
+
+ 
+$active_group = 'default';
+$active_record = TRUE;
+ 
+$db['default']['hostname'] = '192.168.163.158\SQLEXPRESS';
+$db['default']['username'] = 'sa';
+$db['default']['password'] = 'sqluser';
+$db['default']['database'] = 'shop';
+$db['default']['dbdriver'] = 'mssql';
+$db['default']['dbprefix'] = '';
+$db['default']['pconnect'] = TRUE;
+$db['default']['db_debug'] = TRUE;
+$db['default']['cache_on'] = FALSE;
+$db['default']['cachedir'] = '';
+$db['default']['char_set'] = 'utf8';
+$db['default']['dbcollat'] = 'utf8_general_ci';
+$db['default']['swap_pre'] = '';
+$db['default']['autoinit'] = TRUE;
+$db['default']['stricton'] = FALSE;
+ 
+/* End of file database.php */
+/* Location: ./application/config/database.php */
+
+
+
+==========================================
+
+
+/* Principals Database */
+$active_group = "default";
+$active_record = TRUE;
+
+$db['default']['hostname'] = "localhost";
+$db['default']['username'] = "-";
+$db['default']['password'] = "-";
+$db['default']['database'] = "first";
+$db['default']['dbdriver'] = "mysql";
+$db['default']['dbprefix'] = "";
+$db['default']['pconnect'] = TRUE;
+$db['default']['db_debug'] = TRUE;
+$db['default']['cache_on'] = FALSE;
+$db['default']['cachedir'] = "";
+$db['default']['char_set'] = "utf8";
+$db['default']['dbcollat'] = "utf8_general_ci";
+
+/* Information Database */
+$active_group = "second_db";
+$active_record = FALSE;
+
+$db['default']['hostname'] = "localhost";
+$db['default']['username'] = "-";
+$db['default']['password'] = "-";
+$db['default']['database'] = "second";
+$db['default']['dbdriver'] = "mysql";
+$db['default']['dbprefix'] = "";
+$db['default']['pconnect'] = TRUE;
+$db['default']['db_debug'] = TRUE;
+$db['default']['cache_on'] = FALSE;
+$db['default']['cachedir'] = "";
+$db['default']['char_set'] = "utf8";
+$db['default']['dbcollat'] = "utf8_general_ci";
+
+
+$DB2 = $this->load->database('second_db', TRUE);
+
+// PHP ODBC Connection Process
+Used Tea Resort
+$conn = odbc_connect("Driver={SQL Server Native Client 10.0};Server=localhost;Database=TeaResort;", 'sa', '123');
+
+
+//Used Chittagong Boat Club
+
+$active_group = 'local_windows_odbc';
+$active_record = TRUE;
+
+
+$db['local_windows_odbc']['database'] = 'BoatClub';
+$db['local_windows_odbc']['hostname'] = 'Driver={SQL Server};Server=103.4.67.211;Database=' . $db['local_windows_odbc']['database'];
+$db['local_windows_odbc']['username'] = 'sa';
+$db['local_windows_odbc']['password'] = 'esl@10';
+$db['local_windows_odbc']['dbdriver'] = 'odbc';
+$db['local_windows_odbc']['dbprefix'] = '';
+$db['local_windows_odbc']['pconnect'] = FALSE;
+$db['local_windows_odbc']['db_debug'] = TRUE;
+$db['local_windows_odbc']['cache_on'] = FALSE;
+$db['local_windows_odbc']['cachedir'] = '';
+$db['local_windows_odbc']['char_set'] = 'utf8';
+$db['local_windows_odbc']['dbcollat'] = 'utf8_general_ci';
+$db['local_windows_odbc']['swap_pre'] = '';
+$db['local_windows_odbc']['autoinit'] = TRUE;
+$db['local_windows_odbc']['stricton'] = FALSE;
+
+
+
+//As Usal Use Below this connection
+
+$active_group = 'default';
+
+$active_record = TRUE;
+
+
+
+
+/* End of file database.php */
+
+/* Location: ./application/config/database.php */
+
+
+
+$db['default']['hostname'] = 'SrClub1';
+$db['default']['username'] = 'sa';
+$db['default']['password'] = '123';
+$db['default']['database'] = 'SrClub1';
+$db['default']['dbdriver'] = 'odbc';
+$db['default']['dbprefix'] = '';
+$db['default']['pconnect'] = FALSE;
+$db['default']['db_debug'] = TRUE;
+$db['default']['cache_on'] = FALSE;
+$db['default']['cachedir'] = '';
+$db['default']['char_set'] = 'utf8';
+$db['default']['dbcollat'] = 'utf8_general_ci';
+$db['default']['swap_pre'] = '';
+$db['default']['autoinit'] = TRUE;
+$db['default']['stricton'] = FALSE;
+
+
+
+// Local Server Connection System
+
+
+$db['local_windows_odbc']['database'] = 'my_db_name';
+$db['local_windows_odbc']['hostname'] = 'Driver={SQL Server};Server=localhost;Database=' . $db['local_windows_odbc']['database'];
+$db['local_windows_odbc']['username'] = 'username';
+$db['local_windows_odbc']['password'] = 'SQL_PASSWORD_HERE';
+$db['local_windows_odbc']['dbdriver'] = 'odbc';
+$db['local_windows_odbc']['dbprefix'] = '';
+$db['local_windows_odbc']['pconnect'] = FALSE;
+$db['local_windows_odbc']['db_debug'] = TRUE;
+$db['local_windows_odbc']['cache_on'] = FALSE;
+$db['local_windows_odbc']['cachedir'] = '';
+$db['local_windows_odbc']['char_set'] = 'utf8';
+$db['local_windows_odbc']['dbcollat'] = 'utf8_general_ci';
+$db['local_windows_odbc']['swap_pre'] = '';
+$db['local_windows_odbc']['autoinit'] = TRUE;
+$db['local_windows_odbc']['stricton'] = FALSE;

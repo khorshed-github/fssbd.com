@@ -45,13 +45,13 @@ include("config/dbconnect.php");
 		<div class="background-radius"></div>
         <a id="style-logo" href="#">Tea Resort &amp; Museum</a>
 		
-	<div class="offers-page" style="background:#42BFEF;">
+	<div class="offers-page" style="background:#ace2f7;">
 		<section class="check-availability">
 				<div class="container clearfix">
 											
 					<div class="col-md-12">
 						<section class="md-booking">
-							<?php include("booking_form.php"); ?><!-- /.box-booking -->
+							<?php include("booking_form.php"); ?><!-- /.box-booking -->							
 						</section><!-- /.md-booking -->
 					</div>
 					
@@ -60,8 +60,7 @@ include("config/dbconnect.php");
 	</div>
 		
 		<div class="offers-page" style="background:#f5f5f5;">
-            <div class="container offer-container">
-                
+            <div class="container offer-container">                
 				<div class="row"> 
 					<div class="col-md-12">
 						<div class="welcome-text-div">

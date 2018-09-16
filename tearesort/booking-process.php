@@ -36,9 +36,9 @@ $bangloType = $_SESSION['bangloType'];
 	
 	$totalAmount = $grandTotal - $discountAmount;
 	
-	$onlineCharge = $totalAmount/100*3.5;
+	//$onlineCharge = $totalAmount/100*3.5;
 	
-	$bookingAmount = $totalAmount + $onlineCharge;
+	$bookingAmount = $totalAmount;
 	
 	// This is Clients Information from Bookings-details page//
 
@@ -56,7 +56,9 @@ $bangloType = $_SESSION['bangloType'];
 	$nid = mysqli_real_escape_string($con,$_POST['nid']);
 	$email = mysqli_real_escape_string($con,$_POST['email']);
 	$message = mysqli_real_escape_string($con,$_POST['message']);
-
+	
+	$MerchantRefID = time(); //Send with MerchantRefID in Database Table
+	
 	if(isset($_POST['registerButton'])){
 	$qexit = mysqli_query($con,"SELECT email FROM clients WHERE email='$email'");
 	if(mysqli_num_rows($qexit) == 0){
@@ -65,12 +67,22 @@ $bangloType = $_SESSION['bangloType'];
 		$sqlinsert = mysqli_query($con,"UPDATE `clients` SET existing_client=1 WHERE email='$email'");
 	}
 
-	/* $sqlBook = mysqli_query($con,"INSERT INTO `bookings`(`booking_time`, `start_date`, `end_date`, `client_id`, `adult_count`, `child_count`, `extra_guest_count`, `discount_coupon`, `total_cost`, `payment_amount`, `payment_type`, `payment_success`, `payment_txnid`, `paypal_email`, `special_id`, `special_requests`, `is_block`, `is_deleted`, `block_name`, `ip`, `datetime`)VALUES('$bkTime','$entryDate','$outDate','$client_id','$adultCount','$childCount',0,'','$totalAmount','$bookingAmount','','','','','','','','','','$ip',CURRENT_TIMESTAMP)"); */
+	echo $sqlBook = "INSERT INTO `bookings`(`mer_txn_id`, `booking_time`, `start_date`, `end_date`, `client_id`, `adult_count`, `child_count`, `extra_guest_count`, `discount_coupon`, `total_cost`, `payment_amount`, `payment_type`, `payment_success`, `payment_txnid`, `paypal_email`, `special_id`, `special_requests`, `is_block`, `is_deleted`, `block_name`, `ip`, `datetime`)VALUES('$MerchantRefID','$bkTime','$entryDate','$outDate','$client_id','$adultCount','$childCount',0,'','$totalAmount','$bookingAmount','',0,'','',0,'',0,0,'','$ip',CURRENT_TIMESTAMP)";
+
+exit;
+
+	$sqlBook = mysqli_query($con,"INSERT INTO `bookings`(`mer_txn_id`, `booking_time`, `start_date`, `end_date`, `client_id`, `adult_count`, `child_count`, `extra_guest_count`, `discount_coupon`, `total_cost`, `payment_amount`, `payment_type`, `payment_success`, `payment_txnid`, `paypal_email`, `special_id`, `special_requests`, `is_block`, `is_deleted`, `block_name`, `ip`, `datetime`)VALUES('$MerchantRefID','$bkTime','$entryDate','$outDate','$client_id','$adultCount','$childCount',0,'','$totalAmount','$bookingAmount','',0,'','',0,'',0,0,'','$ip',CURRENT_TIMESTAMP)");
 	}
 	
-	
+/* if($sqlinsert AND $sqlBook){
+	echo $msg = "Data Insert Successfull.";
+	}else{
+		echo $msg = "transaction Error!!";
+	}  
+exit; */
+
 //mail Function 
-/* $to = $email;
+$to = $email;
 $subject = "Tea Resort & Museum Bookings details";
 
 $headers = "From: Tea Resort, BTB. <tearesort@yahoo.com> \r\n";
@@ -90,17 +102,21 @@ $message .= "<tr><td><strong>Check In Date:</strong> </td><td>" . strip_tags($en
 $message .= "<tr><td><strong>Check Out Date:</strong> </td><td>" . strip_tags($outDate) . "</td></tr>";
 $message .= "<tr><td><strong>Amount:</strong> </td><td>" . strip_tags($bookingAmount) ."</td></tr>";
 $message .= "</table>";
+$message .= "<p><b>Thank you for choosing our Resort.</b></p>";
 $message .= "</body></html>";
 
-mail($to, $subject, $message, $headers);  */
+mail($to, $subject, $message, $headers);  
 
 
 $currencyCode = "BDT";
 $MerchantID = "TRESORT";
-$MerchantRefID = time();
 $TxnAmount = $bookingAmount;
-$IPGServerURL = "http://ipaytest.bracbank.com:8080";
-$ReturnURL = "http://www.tearesort.gov.bd/Sample";
+$IPGServerURL = "https://igate.bracbank.com";
+/* 
+Demo Server Link
+$IPGServerURL = "http://ipaytest.bracbank.com:8080"; 
+*/
+$ReturnURL = "http://www.tearesort.gov.bd";
 $action = "SaleTxn";
 	
 echo "<script language=\"JavaScript\">";
@@ -121,10 +137,4 @@ echo "document.write('<input type=\"hidden\" name=\"action\"  value=\"".$action.
 	echo "document.write('</form>');";
 	echo "setTimeout(\"document.formigp.submit()\",500);";
 	echo "</script>";
-	
-	/* if($sqlinsert AND $sqlBook){
-
-	}else{
-		echo $msg = "transaction Error!!";
-	}  */
 ?>

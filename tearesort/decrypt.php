@@ -101,12 +101,10 @@ $Transaction_amount = "";
 $Transaction_status = "";
 
     if (!(strpos($DecryptedReceipt, '<error_code>') === false && strpos($DecryptedReceipt, '</error_code>') === false && strpos($DecryptedReceipt, '<error_msg>') === false && strpos($DecryptedReceipt, '</error_msg>') === false)) {
-        $decryptedRcpt_ERR = true;
-        
+        $decryptedRcpt_ERR = true;        
         $Error_code = substr($DecryptedReceipt, (strpos($DecryptedReceipt, '<error_code>')+12), (strpos($DecryptedReceipt, '</error_code>') - (strpos($DecryptedReceipt, '<error_code>')+12)));
     
-        $Error_msg = substr($DecryptedReceipt, (strpos($DecryptedReceipt, '<error_msg>')+11), (strpos($DecryptedReceipt, '</error_msg>') - (strpos($DecryptedReceipt, '<error_msg>')+11)));
-    
+        $Error_msg = substr($DecryptedReceipt, (strpos($DecryptedReceipt, '<error_msg>')+11), (strpos($DecryptedReceipt, '</error_msg>') - (strpos($DecryptedReceipt, '<error_msg>')+11)));    
     } else {
     
         if (!(strpos($DecryptedReceipt, '<acc_no>') === false && strpos($DecryptedReceipt, '</acc_no>') === false)) {
@@ -182,7 +180,6 @@ $Transaction_status = "";
         if($Transaction_status == "ACCEPTED") {
             // here merchant can redirect to a success page
             // Eg : header('Location: http://www.example.com/success.php');
-
             
         } else { //$Transaction_status == "REJECTED"
             // here merchant can redirect to a error page
@@ -196,109 +193,101 @@ $Transaction_status = "";
             <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
             <title>RECEIPT</title>
-            
-            <link rel="stylesheet" type="text/css" href="default.css" />
-            </head>
-            
+            <style type="text/css">			
+				table {
+					font-family: arial, sans-serif;
+					border-collapse: collapse;
+					width: 100%;
+				}
+				td, th {
+					border: 1px solid #dddddd;
+					text-align: left;
+					padding: 8px;
+				}
+				tr:nth-child(even) {
+					background-color: #dddddd;
+				}
+			</style>
+            </head>            
             <body>
             <div id="result_table">
             <h4>RECEIPT</h4>
-            <table>
+          <table>
             <thead>
                     <td>VARIABLE</td>
                     <td>VALUE</td>
-
             </thead>
-                    <tr>
+                <tr>
                     <td>Account Number</td>
                     <td><?php print $Acc_No?></td>
-                </tr>
-                
+                </tr>                
                 <tr>
                     <td>Action</td>
                     <td><?php print $Action?></td>
-                </tr>
-                
+                </tr>                
                 <tr>
                     <td>Bank Reference ID</td>
                     <td><?php print $Bank_ref_ID?></td>
-
-                </tr>
-                
+                </tr>                
                 <tr>
                     <td>Currency</td>
                     <td><?php print $Currency?></td>
                 </tr>
-
                 <tr>
                     <td>IPG Transaction ID</td>
                     <td><?php print $IPG_txn_ID?></td>
                 </tr>
-
                 <tr>
                     <td>Language</td>
                     <td><?php print $Lang?></td>
                 </tr>
-
                 <tr>
                     <td>Merchant Transaction ID</td>
                     <td><?php print $Merchant_txn_ID?></td>
                 </tr>
-
                 <tr>
                     <td>Merchant Variable 1</td>
                     <td><?php print $Merchant_var1?></td>
                 </tr>
-
                 <tr>
                     <td>Merchant Variable 2</td>
                     <td><?php print $Merchant_var2?></td>
                 </tr>
-
                 <tr>
                     <td>Merchant Variable 3</td>
                     <td><?php print $Merchant_var3?></td>
                 </tr>
-
                 <tr>
                     <td>Merchant Variable 4</td>
                     <td><?php print $Merchant_var4?></td>
                 </tr>
-
                 <tr>
                     <td>Name</td>
                     <td><?php print $Name?></td>
                 </tr>
-
                 <tr>
                     <td>Reason</td>
                     <td><?php print $Reason?></td>
                 </tr>
-
                 <tr>
                     <td>Transaction Amount</td>
                     <td><?php print $Transaction_amount?></td>
-                </tr>
-                
+                </tr>                
                 <tr>
                     <td>Transaction Status</td>
                     <td><?php print $Transaction_status?></td>
                 </tr>
-
-            </table>
-            
-            </div>
-            
-            </body>
-            </html>
+            </table>            
+            </div>            
+           </body>
+        </html>
         <?php
     } else {
         ?>
         <html>
         <head>
         </head>
-            <body>
-                
+            <body>                
                 <h2>Error in IPG client communication or Decryption</h2><br /><br />
                 <h4>Socket Creation Errors</h4>
                 <ul>
@@ -313,7 +302,6 @@ $Transaction_status = "";
                     <li><b>Error Message : </b><?php print $Error_msg ?></li>
                 </ul>
             </body>
-
         </html>
         <?php
     }

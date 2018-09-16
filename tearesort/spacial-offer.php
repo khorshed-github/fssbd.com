@@ -43,7 +43,7 @@ error_reporting(0);
 				<div class="row"> 
 					<div class="col-md-12">
 						<div class="welcome-text-div">
-							<h1>Spacial Offers <?php echo date("Y");?></h1>
+							<h1>Special Offers <?php echo date("Y");?></h1>
 							<img class="dot-square" src="images/icons/line-small.png" alt="special offers">
 						</div>
 					</div>

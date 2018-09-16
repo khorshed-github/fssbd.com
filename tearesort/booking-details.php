@@ -49,9 +49,9 @@ if(isset($_POST['booking'])){
 	
 	$totalAmount = $grandTotal - $discountAmount;
 	
-	$onlineCharge = $totalAmount/100*3.5;
+	//$onlineCharge = $totalAmount/100*3.5;
 	
-	$bookingAmount = $totalAmount + $onlineCharge;
+	$bookingAmount = $totalAmount;
 	}
 }
 // Get Search Value to retrive booking-process Page//
@@ -199,17 +199,18 @@ $_SESSION['bangloType']=$roomType;
 									<?php echo 'TK'.number_format($totalAmount, 2 , '.', ',');?>
 									 </span></strong></td>
 								   </tr>
-								   
+								   <!--
 								   <tr>
 									<td colspan="3" align="right" bgcolor="#f5f9f9">Online Charge ( 3.50 %)</td>
 									<td align="right" bgcolor="#f5f9f9" style="padding-right:5px;"><span id="taxamountdisplay">
-									 <?php echo 'TK'.number_format($onlineCharge, 2 , '.', ',');?>
+									 <?php// echo 'TK'.number_format($onlineCharge, 2 , '.', ',');?>
 									 </span></td>
 								   </tr>
+								   -->
 								   <tr>
 								   <tr id="advancepaymentdisplay">
-									<td colspan="3" align="right" bgcolor="#DBEDFC"><strong> Advance Booking Amount Pay</strong></td>
-									<td align="right" bgcolor="#DBEDFC" style="padding-right:5px;"><span id="advancepaymentamount"><strong>
+									<td colspan="3" align="right" style=" background:#7ec7bd;"><strong> Advance Booking Amount Pay</strong></td>
+									<td align="right" style="padding-right:5px; background:#7ec7bd;"><span id="advancepaymentamount"><strong>
 									<?php echo 'TK'.number_format($bookingAmount, 2 , '.', ',');?></strong>
 									 </span>
 									 </td>

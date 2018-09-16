@@ -530,7 +530,7 @@ nav {
     font-family: "Georgia";
     font-size: 20px;
     padding: 10px;
-    color: #999;
+    color: #000;
     background: transparent;
     -webkit-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
     -moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
@@ -602,7 +602,7 @@ nav {
     padding: 8px 60px 6px 14px;
     height: 100%;
     width: 100%;
-    color: #999;
+    color: #000;
     position: relative;
     text-overflow: "";
     text-indent: 0.01px;

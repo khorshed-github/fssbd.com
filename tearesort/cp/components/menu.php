@@ -26,7 +26,7 @@
                     </a>
                     <ul class="sub">
 						<li><a href="add_slider.php">Add Slider Images</a></li>
-						<li><a href="show_slider.php">Show Slider Images</a></li>
+						<li><a href="show-home-slider.php">Show Slider Images</a></li>
                     </ul>
                 </li>
 				

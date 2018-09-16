@@ -67,33 +67,27 @@ include("login_check.php");
             <th style="width:20px;">
               Sl
             </th>
-            <th>Guest Name</th>
             <th>Check In</th>
             <th>Check Out</th>
-            <th>Amount</th>
-            <th>Booking Date</th>
-            <th style="width:80px;">Details</th>
+            <th>Amount</th>           
+            <th>Block Reason</th>
+			 <th>Bloking Date</th>
           </tr>
         </thead>
         <tbody>
 			<?php
 				$num = 0;
-				$select = mysqli_query($con,"SELECT c.client_id,c.first_name,c.surname,c.title,b.booking_time,b.start_date,b.end_date,b.payment_amount FROM clients as c inner join bookings as b where c.client_id=b.client_id");
+				$select = mysqli_query($con,"SELECT b.start_date,b.end_date,b.payment_amount,b.block_name,b.datetime FROM bookings as b where is_block='1'");
 				while($data = mysqli_fetch_array($select)){
 					$num++;
 			?>
           <tr>
-            <td><?php echo $num; ?></td>            
-            <td><?php echo $data['title']." ".$data['first_name']." ".$data['surname'];?></td>
+            <td><?php echo $num; ?></td>           
             <td><?php echo date("d-m-Y",strtotime($data['start_date']));?></td>
             <td><?php echo date("d-m-Y",strtotime($data['end_date']));?></td>
-            <td><?php echo number_format($data['payment_amount'],2,".",",");?> tk.</td>
-            <td><?php echo date("d-m-Y",strtotime($data['booking_time']));?></td>
-			<td>
-			<center>
-              <a href="show_booking_details.php?clientid=<?php echo $data['client_id'];?>" class="active" ui-toggle-class=""><i class="fa fa-plus-square text-danger text"></i></a>
-			</center>
-            </td>
+            <td><?php echo number_format($data['payment_amount'],2,".",",");?> tk.</td>           
+            <td><?php echo $data['block_name'];?></td>
+			<td><?php echo date("d-m-Y",strtotime($data['datetime']));?></td>		
           </tr>
 		  <?php
 			}
