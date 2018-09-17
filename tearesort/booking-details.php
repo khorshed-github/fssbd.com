@@ -26,7 +26,7 @@ if(isset($_POST['booking'])){
 
 	if(mysqli_num_rows($result)>0)
 		{
-			$msg = "<strong>Sorry no abailable room in this date schedule.</strong> Please search another date schedule.";
+			$msg = "<strong>Sorry no available room in this date schedule.</strong> Please search another date schedule.";
 		}
     else 
 		{

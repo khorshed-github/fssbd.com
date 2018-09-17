@@ -302,7 +302,6 @@ $('#submit-fomr').click(function() {
                 $('.slider-preload-cover').hide();
                 $('.home-landing>div>h1').show();
             });
-
             $(document).ready(function(){
                 $('.facilities-carousel, #awards-carousel').css('height', 'auto');
             });
