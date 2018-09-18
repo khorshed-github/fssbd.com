@@ -1,0 +1,39 @@
+select * from tbBookingSetup
+
+select * from tbTempGuestInfo
+
+select * from tbGuestInfo
+
+select * from tbChargeAllocation
+
+select * from tbRoomInfo where roomId='8' and typeId='2'
+
+select roomTypeId,roomType from tbRoomType
+
+select cast(isnull(max(cast(replace(guestId, '', '')as int))+1, 1)as varchar) from tbTempGuestInfo
+
+
+String sql = "INSERT INTO tbTempGuestInfo(guestId,guestName,gender,passport,NID,contactNo,email,country,address,cId,companyName,userId,userIp,entryTime,memberId,memberName) VALUES" +
+"('"+gid+"','"+txtGuestName.getValue().toString().replaceAll(",", " ")+"','"+gender.getValue().toString()+"'," +
+" '"+txtPassport.getValue()+"','"+txtNID.getValue()+"','"+txtMobile.getValue()+"','"+txtEmail.getValue()+"'," +
+" '"+txtcountry.getValue()+"','"+txtAddress.getValue()+"'," +
+" '"+companyName.getValue()+"','"+companyName.getItemCaption(companyName.getValue())+"'," +
+"'"+sessionBean.getUserId()+"','"+sessionBean.getUserIp()+"',CURRENT_TIMESTAMP,'','' )";
+
+
+select cast(isnull(max(cast(replace(bookingId, '', '')as int))+1, 1)as varchar) from tbBookingSetup
+
+String sql = "INSERT INTO tbBookingSetup(status,bookingId,bookingDate,checkInDate,checkOutDate,arraivalTime," +
+"adult,child,tempGuestId,guestId,cId,typeName,bookingRoomId,roomRate,discount," +
+"billTransferRoom,billTransferAmount,pickupFrom,pickupTo,pickupDateTime,remarks," +
+"userId,userIp,entryTime,day,posType,serviceCharge,vat,roomTypeId,memberId,memberName,PaymentType) VALUES" +
+"('Book','"+id+"',CURRENT_TIMESTAMP,'"+dFormat.format(checkIN.getValue())+"','"+dFormat.format(checkOUT.getValue())+"','"+dFormat.format(arraivalTIme.getValue())+"'," +
+" '"+txtAdult.getValue().toString()+"','"+txtChild.getValue().toString().trim()+"'," +
+" '"+gid+"','', '"+companyName.getValue().toString()+"','"+txtGuestType.getValue().toString()+"'," +
+" '"+cmbRoomNo.getValue().toString()+"','"+txtAfterRoomRent.getValue().toString()+"','"+txtDiscount.getValue().toString()+"'," +
+" '"+billRoom+"'," +
+"'"+txtTransferBill.getValue().toString()+"','"+txtPickupFrom.getValue().toString()+"','"+txtPickupTo.getValue().toString()+"'," +
+" '"+dFormat.format(pickupDate.getValue())+"','"+txtSpecial.getValue().toString()+"', " +
+" '"+sessionBean.getUserId()+"','"+sessionBean.getUserIp()+"',CURRENT_TIMESTAMP,'"+txtDay.getValue().toString()+"','"+cmbPosType.getValue().toString()+"', " +
+" '"+txtServiceCharge.getValue().toString()+"','"+txtVat.getValue().toString()+"','"+cmbRoomType.getValue().toString()+"','','','')";
+
