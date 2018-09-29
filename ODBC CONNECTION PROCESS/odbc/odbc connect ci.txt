@@ -1,3 +1,5 @@
+anydesk: desktop-a2fg5m9@ad
+
 /* Connect MSSQL Server*/
 $db['mssql']['hostname'] = 'Driver={SQL Server};Server=192.168.202.20;Database=test_db;
 $db['mssql']['username'] = 'sa';
