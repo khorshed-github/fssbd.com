@@ -16,9 +16,8 @@
     }
 	
 exit; */
-/* $ Conn = new PDO ("odbc: Driver = {SQL Server Native Client 10.0}; Server = 180.211.180.178,1433; Database=TeaResort; 'sa', '786@esl10'"); */
 
-$conn = odbc_connect("Driver={SQL Server Native Client 10.0};Server=180.211.180.178,1433;Database=TeaResort;", 'sa', '786@esl10');
+$conn = odbc_connect("Driver={SQL Server Native Client 10.0};Server=server_name,1433;Database=database_name;", 'user', 'password');
 
  if (!$conn)
   {exit("Connection Failed: " . $conn);}

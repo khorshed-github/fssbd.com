@@ -1,8 +1,8 @@
 <?php
-    $myServer = "180.211.180.178";
+    $myServer = "server name";
     $myUser = "sa";
-    $myPass = "786@esl10";
-    $myDB = "TeaResort";
+    $myPass = "pass";
+    $myDB = "db name";
     
     $conn = mssql_connect($myServer,$myUser,$myPass);
     if (!$conn)
