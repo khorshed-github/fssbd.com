@@ -1,9 +1,6 @@
 <?php
-//password: t^_K%vbMk4$D
 
-phpinfo();
-exit;
-$server = 'localhost';
+/* $server = '192.168.75.2';
     $user = 'sa';
     $pass = '123';
     //Define Port
@@ -17,13 +14,16 @@ $server = 'localhost';
     } else{
         die("Connection could not be established.");
     }
-exit;
+	
+exit; */
+/* $ Conn = new PDO ("odbc: Driver = {SQL Server Native Client 10.0}; Server = 180.211.180.178,1433; Database=TeaResort; 'sa', '786@esl10'"); */
 
-$conn = odbc_connect("Driver={SQL Server Native Client 10.0};Server=localhost;Database=TeaResort;", 'sa', '123');
+$conn = odbc_connect("Driver={SQL Server Native Client 10.0};Server=180.211.180.178,1433;Database=TeaResort;", 'sa', '786@esl10');
 
-/* if (!$conn)
+ if (!$conn)
   {exit("Connection Failed: " . $conn);}
-$sql="SELECT * FROM tbBookingSetup";
+
+$sql="SELECT top 10 * FROM tbBookingSetup";
 $rs=odbc_exec($conn,$sql);
 if (!$rs)
   {exit("Error in SQL");}
@@ -38,5 +38,5 @@ while (odbc_fetch_row($rs))
   echo "<td>$conname</td></tr>";
 }
 odbc_close($conn);
-echo "</table>"; */
+echo "</table>"; 
 ?>
