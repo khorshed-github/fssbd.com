@@ -13,29 +13,7 @@
 <script type='text/javascript' src='js/jquery/jquery-migrate.min.js'></script>
 <link rel="shortcut icon" href="images/favicon.ico" title="Favicon" />	
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script type="text/javascript">
-	/* <![CDATA[ */
-		var sf_position = '0';
-		var sf_templates = "<a href=\"{search_url_escaped}\">View All Results<\/a>";
-		var sf_input = '.search-live';
-		jQuery(document).ready(function(){
-			jQuery(sf_input).ajaxyLiveSearch({"expand":false,"searchUrl":"http:\/\/aimforever.info\/?s=%s","text":"Search","delay":500,"iwidth":180,"width":315,"ajaxUrl":"http:\/\/aimforever.info\/wp-admin\/admin-ajax.php","rtl":0});
-			jQuery(".live-search_ajaxy-selective-input").keyup(function() {
-				var width = jQuery(this).val().length * 8;
-				if(width < 50) {
-					width = 50;
-				}
-				jQuery(this).width(width);
-			});
-			jQuery(".live-search_ajaxy-selective-search").click(function() {
-				jQuery(this).find(".live-search_ajaxy-selective-input").focus();
-			});
-			jQuery(".live-search_ajaxy-selective-close").click(function() {
-				jQuery(this).parent().remove();
-			});
-		});
-	/* ]]> */
-</script>
+
 		</head>
 <body id="top" class="home blog lazy-enabled">
 <div class="wrapper-outer">
