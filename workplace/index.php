@@ -36,17 +36,19 @@
 
             </div>
             <div class="col-sm-9">
-                <div class="addSection comonstyle">
+                <div class="addSection ">
                     <div class="panel panel-default">
-                        <div class="panel-body">
+                        <div class="panel-body comonstyle">
                             <img class="img-responsive img-thumbnail" src="uploads/unnamed.png" alt="Chania">
-                            <?php 
+                            <!--
+                               <?php 
                                 if($jobs['3']['type'] == '0'){?>
                             <a href="<?php echo $jobs['3']['link'];?>"><img src="images/job/<?php echo $jobs['3']['image'];?>" style="width:100%;" alt="" /></a>
                             <?php }else if($jobs['3']['type'] == '1'){ 
                                      echo urldecode($jobs['3']['script']);
                                 }
                                 ?>
+                                -->
                         </div>
                     </div>
 
@@ -191,26 +193,28 @@
                         <div class="col-sm-12">
                             <h3 style="background: url(images/stripe.png);">Sponsorse</h3>
                             <div class="addSection comonstyle">
-                                <img class="img-responsive img-thumbnail comonstyle" src="uploads/Business-Etiquette-Training-660x330.jpg" alt="Chania">
+                                <img class="img-responsive img-thumbnail" src="uploads/Business-Etiquette-Training-660x330.jpg" alt="Chania">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <h3 style="background: url(images/stripe.png);">Recent Post</h3>
+                            <div class="addSection comonstyle">
                             <?php
-                                       for ($x = 0; $x <= 5; $x++) {
-                                            ?>
+                               for ($x = 0; $x <= 5; $x++) {
+                                    ?>
                             <p>
-                                <a href="">Advanced Mobile SEO TIPS For Mobile Marketing</a>
+                                <a href="">Advanced Mobile SEO TIPS For Mobile</a>
                                 <br>
                                 <i class="fa fa-clock-o"></i>&nbsp;September 12, 2018
                             </p>
-                            <?php
+                                <?php
                                        }
                                     ?>
                             <a href="#" class="btn btn-info" style="width:100%;"><strong>Go To Last Page</strong></a>
 
+                        </div>
                         </div>
                     </div>
                     <br>
