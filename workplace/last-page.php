@@ -1,17 +1,3 @@
-<?php 
-  include 'inc/conn.php';
-  include 'inc/function.php';
-  include 'inc/common_function.php';
-?>
-<?php                             
-    $query = "SELECT url FROM `working_sites` WHERE rand() and status='1'";
-    $sql = mysqli_query($db, $query);
-    $sites = array();
-    while($links = mysqli_fetch_array($sql)){
-        $sites[] = $links['url'];
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -62,14 +48,14 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="addSection comonstyle">
-                    <a href="<?php echo $sites['0'];?> " class="btn btn-info" style="width:100%;"><strong><?php echo $sites['0'];?> <i class="fa fa-angle-double-right pull-right"></i></strong></a>
-                    <a href="<?php echo $sites['1'];?>" class="btn btn-info" style="width:100%; margin-top:5px;"><strong><?php echo $sites['1'];?> <i class="fa fa-angle-double-right pull-right"></i> </strong></a>
+                    <a href="#" class="btn btn-info" style="width:100%;"><strong>www.domain.com <i class="fa fa-angle-double-right pull-right"></i></strong></a>
+                    <a href="#" class="btn btn-info" style="width:100%; margin-top:5px;"><strong>www.domain.com <i class="fa fa-angle-double-right pull-right"></i> </strong></a>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="addSection comonstyle">
-                    <a href="<?php echo $sites['2'];?>" class="btn btn-info" style="width:100%;"><strong><?php echo $sites['2'];?> <i class="fa fa-angle-double-right pull-right"></i></strong></a>
-                    <a href="<?php echo $sites['3'];?>" class="btn btn-info" style="width:100%; margin-top:5px;"><strong><?php echo $sites['3'];?><i class="fa fa-angle-double-right pull-right"></i></strong></a>
+                    <a href="#" class="btn btn-info" style="width:100%;"><strong>www.domain.com<i class="fa fa-angle-double-right pull-right"></i></strong></a>
+                    <a href="#" class="btn btn-info" style="width:100%; margin-top:5px;"><strong>www.domain.com<i class="fa fa-angle-double-right pull-right"></i></strong></a>
                 </div>
             </div>
         </div>
@@ -291,14 +277,6 @@
                     <a href="#" class="btn btn-info" style="width:100%; margin-top:5px;"><strong>www.domain.com <i class="fa fa-angle-double-right pull-right"></i> </strong></a>
                     <a href="#" class="btn btn-info" style="width:100%; margin-top:5px;"><strong>www.domain.com <i class="fa fa-angle-double-right pull-right"></i> </strong></a>
                     <a href="#" class="btn btn-info" style="width:100%; margin-top:5px;"><strong>www.domain.com <i class="fa fa-angle-double-right pull-right"></i> </strong></a>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-sm-4 col-sm-offset-4"> 
-                 <div class="addSection comonstyle">
-                    <a href="#" class="btn btn-info" style="width:100%;"><strong>Go To Articles Page</strong></a>
                 </div>
             </div>
         </div>

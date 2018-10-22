@@ -13,3 +13,15 @@ Design: Khorshed.
     border: 1px solid #fafafa;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
+.btncommn{
+    margin-top:8px !important;
+}
+.randomarticle p{
+    border-bottom: 1px solid #ccc;
+}
+.randomarticle i{
+    color:  #999;
+}
+.randomarticle span{
+        color:  #999;
+}

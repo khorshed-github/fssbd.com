@@ -1,3 +1,8 @@
+<?php 
+  include 'inc/conn.php';
+  include 'inc/function.php';
+  include 'inc/common_function.php';
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -19,11 +24,12 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="alert alert-info">
-                    <p> <strong class="pull-left">Name: Khorshed Alam</strong> <strong class="pull-right">Primary Balance: 30 TK.</strong> </p><br>
+                    <p> <strong class="pull-left">Name: Khorshed Alam</strong> <strong class="pull-right">Primary Balance: 30 BDT</strong> </p><br>
                 </div>
 
             </div>
         </div>
+
 
 
 
@@ -38,17 +44,29 @@
             <div class="col-sm-9">
                 <div class="addSection ">
                     <div class="panel panel-default">
-                        <div class="panel-body comonstyle">
+                        <div class="panel-body comonstyle text-center">
                             <img class="img-responsive img-thumbnail" src="uploads/unnamed.png" alt="Chania">
-                            <!--
-                               <?php 
-                                if($jobs['3']['type'] == '0'){?>
+
+                            <?php                             
+                                $sql = mysqli_query($db, "SELECT * FROM `jobs` limit 10");
+                               
+                                $sl = 1;
+                                $array = array();
+                                foreach($sql as $jobs){
+                                    $array[$sl] = $jobs;
+                                    $sl++;
+                                }
+                            //print_r($array);
+                           // exit;
+                            
+                          if($jobs['3']['type'] == '0'){?>
                             <a href="<?php echo $jobs['3']['link'];?>"><img src="images/job/<?php echo $jobs['3']['image'];?>" style="width:100%;" alt="" /></a>
                             <?php }else if($jobs['3']['type'] == '1'){ 
                                      echo urldecode($jobs['3']['script']);
                                 }
                                 ?>
-                                -->
+                            <button type="button" class="btn btn-large btn-info btncommn">Like</button>
+
                         </div>
                     </div>
 
@@ -102,15 +120,16 @@
                             <a href="#">[Home]</a>
                         </li>
                         <li>
-                            <a href="#">[About]</a>
-                        </li>}
-                        <li class="active">[Contact]</li>
+                            <a href="#">Remote Workforce</a>
+                        </li>
+
                     </ol>
                     <!--/* // Main Contents Section. */ -->
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="addSection comonstyle">
+                            <div class="addSection comonstyle cmnbtn text-center">
                                 <img class="img-responsive img-thumbnail" src="uploads/unnamed.png" width="100%" alt="Chania">
+                                <button type="button" class="btn btn-large btn-info btncommn">Like</button>
                             </div>
                         </div>
                     </div>
@@ -120,9 +139,8 @@
                         <p><i class="fa fa-user"></i>&nbsp;<a href="">User Name</a> <i class="fa fa-clock-o"></i>&nbsp;September 12, 2018</p>
                         <p>
                             I have a preference for my team to be onsite, but for some functions and aspects of our discharge faithfulness, these elements are outsourced. Currently 40% benefit of American workers are vibes pain some organization remotely, without having to be assert at their place of concern at all times. This trend creates demand for conveniently training
-                            <div class="addSection comonstyle">
-                                <img class="img-responsive img-thumbnail pull-right" src="uploads/cox_chart-310x165.jpg" alt="Chania">
-                            </div>
+
+                            <img class="img-responsive img-thumbnail pull-right" src="uploads/cox_chart-310x165.jpg" alt="Chania">
                             unapproachable employees through video conferencing platforms, especially for social media and programming positions. All that is required is a computer and Internet
                             I have a preference for my team to be onsite, but for some functions and aspects of our discharge faithfulness, these elements are outsourced. Currently 40% benefit of American workers are vibes pain some organization remotely, without having to be assert at their
                             place of concern at all times. This trend creates demand for conveniently training unapproachable employees through video conferencing platforms, especially for social media and programming positions. All that is required is a computer and Internet
@@ -130,9 +148,10 @@
                         <p>
                             <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit quod quia necessitatibus vitae, ducimus labore corporis dolore expedita, neque accusantium optio, voluptatem quasi. Minima, consequatur, quas! Temporibus voluptates ut a!</span>
                             <span>Necessitatibus officiis sequi excepturi rem eveniet culpa optio sed corporis deleniti, iure consequuntur eaque dolor cum porro odio incidunt fuga expedita earum id,
-                                <div class="addSection comonstyle">
-                                    <img class="img-responsive img-thumbnail pull-left" src="uploads/Business-Etiquette-Training-310x165.jpg" alt="Chania">
-                                </div> voluptas illo error. Aspernatur molestias totam repellendus.</span>
+
+                                <img class="img-responsive img-thumbnail pull-left" src="uploads/Business-Etiquette-Training-310x165.jpg" alt="Chania">
+
+                                voluptas illo error. Aspernatur molestias totam repellendus.</span>
                             <span>Magnam explicabo, ipsam. Dignissimos, magnam, molestiae eveniet maiores animi eius ipsum vero cupiditate quia, sequi quae hic nostrum corporis commodi illo debitis? Doloribus quas illum, ipsa nobis nam voluptates ad.</span>
                             <span>Alias perspiciatis consequuntur blanditiis similique expedita omnis, iste officiis iure sint modi eaque eos corporis repudiandae ex doloribus ratione neque voluptas. Illo porro quis unde illum, consequatur. Ipsa, nisi, eligendi!</span>
                             <span>Quae laboriosam nesciunt fugiat quisquam consectetur eveniet suscipit deleniti similique vero architecto. Perferendis ipsam consequuntur eius quaerat, aliquam quibusdam sunt autem, sint labore illum veniam explicabo inventore cum nisi hic.</span>
@@ -140,10 +159,11 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="addSection comonstyle">
+                            <div class="addSection comonstyle  text-center">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <img class="img-responsive img-thumbnail" src="uploads/unnamed.png" width="100%" alt="Chania">
+                                        <button type="button" class="btn btn-large btn-info btncommn">Like</button>
                                     </div>
                                 </div>
 
@@ -151,19 +171,22 @@
                         </div>
                     </div>
                     <br>
-                    <button type="button" class="btn btn-default">[button]</button>
-                    <button type="button" class="btn btn-default">[button]</button>
-                    <button type="button" class="btn btn-default">[button]</button>
-                    <button type="button" class="btn btn-default">[button]</button>
+                    <button type="button" class="btn btn-primary">Facebook</button>
+                    <button type="button" class="btn btn-info">Tuitter</button>
+                    <button type="button" class="btn btn-danger">Google+</button>
+                    <button type="button" class="btn btn-warning">Linkedin</button>
+                    <button type="button" class="btn btn-success">Pintarest</button>
+
 
                     <hr>
 
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="addSection comonstyle">
+                            <div class="addSection comonstyle text-center">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <img class="img-responsive img-thumbnail" src="uploads/unnamed.png" width="100%" alt="Chania">
+                                        <button type="button" class="btn btn-large btn-info btncommn">Like</button>
                                     </div>
                                 </div>
 
@@ -175,10 +198,11 @@
 
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="addSection comonstyle">
+                            <div class="addSection comonstyle text-center">
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <img class="img-responsive img-thumbnail" src="uploads/unnamed.png" width="100%" alt="Chania">
+                                        <button type="button" class="btn btn-large btn-info btncommn">Like</button>
                                     </div>
                                 </div>
 
@@ -192,63 +216,66 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <h3 style="background: url(images/stripe.png);">Sponsorse</h3>
-                            <div class="addSection comonstyle">
+                            <div class="addSection comonstyle text-center">
                                 <img class="img-responsive img-thumbnail" src="uploads/Business-Etiquette-Training-660x330.jpg" alt="Chania">
+                                <button style="margin-top:8px;" type="button" class="btn btn-large btn-info btncommn">Like</button>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <h3 style="background: url(images/stripe.png);">Recent Post</h3>
-                            <div class="addSection comonstyle">
-                            <?php
-                               for ($x = 0; $x <= 5; $x++) {
+                            <div class="addSection comonstyle randomarticle">
+
+
+                                <?php
+                                $sqlr = "SELECT username,j_date FROM flc_users where rand() limit 10";  
+                                $sqlRc = mysqli_query($db,$sqlr);      
+                                while($show = mysqli_fetch_assoc($sqlRc)) {
                                     ?>
-                            <p>
-                                <a href="">Advanced Mobile SEO TIPS For Mobile</a>
-                                <br>
-                                <i class="fa fa-clock-o"></i>&nbsp;September 12, 2018
-                            </p>
+                                <p>
+                                    <a href="<?php echo $show['username']; ?>">
+                                        <?php echo $show['username']; ?></a>
+                                    <br>
+                                    <i class="fa fa-clock-o"></i>&nbsp;<span> <?php echo date("F d, Y",strtotime($show['j_date']))?>
+                                    </span>
+                                </p>
                                 <?php
                                        }
                                     ?>
-                            <a href="#" class="btn btn-info" style="width:100%;"><strong>Go To Last Page</strong></a>
+                                <a href="#" class="btn btn-info" style="width:100%;"><strong>Go To Last Page</strong></a>
 
-                        </div>
+                            </div>
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="addSection comonstyle">
+                            <div class="addSection comonstyle text-center">
                                 <img class="img-responsive" src="uploads/cox_chart-310x165.jpg" width="100%" alt="Chania">
+                                <button type="button" class="btn btn-large btn-info btncommn">Like</button>
                             </div>
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="addSection comonstyle">
+                            <div class="addSection comonstyle text-center">
                                 <img class="img-responsive" src="uploads/Business-Etiquette-Training-660x330.jpg" width="100%" alt="Chania">
+                                <button type="button" class="btn btn-large btn-info btncommn">Like</button>
                             </div>
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="addSection comonstyle">
+                            <div class="addSection comonstyle text-center">
                                 <img class="img-responsive" src="uploads/cox_chart-310x165.jpg" width="100%" alt="Chania">
+                                <button type="button" class="btn btn-large btn-info btncommn">Like</button>
                             </div>
                         </div>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="addSection comonstyle">
-                                <img class="img-responsive" src="uploads/Business-Etiquette-Training-660x330.jpg" width="100%" alt="Chania">
-                            </div>
-                        </div>
-                    </div>
+                   
 
                 </div>
                 <!-- Right Side Bar end-->
@@ -259,7 +286,9 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="alert alert-info">
-                   <center><h1>This is Footer Section</h1></center>
+                    <center>
+                        <h1>This is Footer Section</h1>
+                    </center>
                 </div>
 
             </div>
